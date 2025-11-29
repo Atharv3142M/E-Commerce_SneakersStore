@@ -71,6 +71,8 @@ p{
     margin: 30px 0px;
     border-radius: 30px;
     transition:background 0.5s;
+    border: none;
+    cursor: pointer;
 }
 .btn:hover{
     background: #563434;
@@ -400,8 +402,6 @@ input:focus{
 }
 
 
-
-
         /*------------------------------ cart items ------------------------------*/
 .cart-page{
     margin: 80px auto;
@@ -512,7 +512,7 @@ form .btn:focus{
     outline: none;
 }
 
-/* Updated positions for Login Default */
+/* Login/Register Toggle Logic */
 #LoginForm{
     left: 0;
 }
@@ -529,7 +529,42 @@ form a{
     background: #ff523b;
     height: 3px;
     margin-top: 8px;
-    /* Updated transform for Login Default */
     transform: translateX(0px); 
     transition: transform 1s;
+}
+
+/*----------------------- Checkout & Profile Details -----------------------*/
+.checkout-form {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+}
+.checkout-form input, .checkout-form select, .checkout-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.checkout-form h2 {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.user-profile {
+    text-align: center;
+    display: none; /* Hidden by default, shown by JS if logged in */
+    width: 300px;
+    background: #fff;
+    padding: 20px;
+    margin: auto;
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.1);
+}
+
+.user-profile input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
 }

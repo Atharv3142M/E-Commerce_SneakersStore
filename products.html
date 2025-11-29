@@ -1,230 +1,141 @@
 <!DOCTYPE html>
-<html>
-    
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width-device-width, initial-scale=1.0">
-        <title>All Products - Redstore</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-        <!--added a cdn link by searching font awesome4 cdn and getting this link from https://www.bootstrapcdn.com/fontawesome/ this url*/-->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    </head>
-    <body>
-        <!--<div class ="header">-->
-        <div class="container">
-            <div class="navbar">
-                <div class="logo">
-                    <a href="index.html"><img src="images/logo.png" width="125px"></a>
-                </div>
-               <nav>
-                    <ul id="MenuItems">
-                        <li><a href="index.html">Home</a></li>
-                         <li><a href="products.html">Products</a></li>
-                         <li><a href="">About</a></li>
-                         <li><a href="">Contact</a></li>
-                         <li><a href="account.html">Account</a></li>
-
-                    </ul>
-                </nav>
-                <a href="cart.html"><img src="images/cart.png" width="30px" height="30px"></a>
-                <img src="images/menu.png" class="menu-icon" onClick="menutoggle()" >
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products - Redstore</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="images/logo.png" width="125px"></a>
             </div>
-           
+            <nav>
+                <ul id="MenuItems">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="account.html">Account</a></li>
+                </ul>
+            </nav>
+            <a href="cart.html"><img src="images/cart.png" width="30px" height="30px"></a>
+            <img src="images/menu.png" class="menu-icon" onClick="menutoggle()" >
         </div>
-    <!--</div>-->
-    
-        
-        <!------------------------------ Products------------------------------>
-        <div class="small-container">
-            <div class="row row-2">
-                <h2>All Products</h2>
-                <select>
-                    <option>Default sorting</option>
-                    <option>Short by price</option>
-                    <option>Short by popularity</option>
-                    <option>Short by rating</option>
-                    <option>Short by sale</option>
-                </select>
-            </div>
-            
-            
-            <!--<h2 class="title" >Featured Products</h2>-->
-            <div class="row">
-                    <div class="col-4">
-                        <a href="products-details.html"><img src="images/product-11.jpg"></a>
-                        <a href="products-details.html"><h4>Downshifter Sports Shoes</h4></a>
-                        <div class="rating">
-                            
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star-half-o" ></i>
-                            <i class="fa fa-star-o" ></i>
-                        </div>
-                        <p>$50.00</p>
-                    </div>
-                    <div class="col-4">
-                        <a href="products-details.html"><img src="images/product-2.jpg"></a>
-                        <h4>Lace-Up Running Shoes</h4>
-                        <div class="rating">
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star-half-o" ></i>
-                        </div>
-                        <p>$35.00</p>
-                    </div>
-                    <div class="col-4">
-                        <a href="products-details.html"><img src="images/product-3.jpg"></a>
-                        <h4>Lace Fastening Shoes</h4>
-                        <div class="rating">
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star-o" ></i>
-                        </div>
-                        <p>$15.00</p>
-                    </div>
-                    <div class="col-4">
-                        <a href="products-details.html"><img src="images/product-10.jpg"></a>
-                        <h4>Flat Lace-Fastening Shoes</h4>
-                        <div class="rating">
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star-o" ></i>
-                            <i class="fa fa-star-o" ></i>
-                        </div>
-                        <p>$48.00</p>
-                    </div>  
-                </div>
-            
-            <!-------------- new row----------------->
-            
-            <div class="row">
-                    <div class="col-4">
-                        <a href="products-details.html"><img src="images/product-5.jpg"></a>
-                        <h4>Flat Heel gray hoes</h4>
-                        <div class="rating">
-                            
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star-half-o" ></i>
-                            <i class="fa fa-star-o" ></i>
-                        </div>
-                        <p>$50.00</p>
-                    </div>
-                    <div class="col-4">
-                        <a href="products-details.html"><img src="images/product-3.jpg"></a>
-                        <h4>Lace-Fastening black Shoes</h4>
-                        <div class="rating">
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star-half-o" ></i>
-                        </div>
-                        <p>$21.00</p>
-                    </div>
-                    <div class="col-4">
-                        <a href="products-details.html"><img src="images/product-7.jpg"></a>
-                        <h4>HRX Men's cotton socks</h4>
-                        <div class="rating">
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star-o" ></i>
-                        </div>
-                        <p>$09.00</p>
-                    </div>
-                    <div class="col-4">
-                        <a href="products-details.html"><img src="images/product-2.jpg"></a>
-                        <h4>Lace-Up Running Shoes</h4>
-                        <div class="rating">
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star-o" ></i>
-                            <i class="fa fa-star-o" ></i>
-                        </div>
-                        <p>$35.00</p>
-                    </div>  
-                </div>
-            <!--new row for the latest product-->
-                <div class="row">
-                    <div class="col-4">
-                        <a href="products-details.html"><img src="images/product-7.jpg"></a>
-                        <h4>HRX cotton socks</h4>
-                        <div class="rating">
-                            
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star-half-o" ></i>
-                            <i class="fa fa-star-o" ></i>
-                        </div>
-                        <p>$10.00</p>
-                    </div>
-                    <div class="col-4">
-                        <a href="products-details.html"><img src="images/product-10.jpg"></a>
-                        <h4>Flat Lace-Fastening Shoes</h4>
-                        <div class="rating">
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star-half-o" ></i>
-                        </div>
-                        <p>$48.00</p>
-                    </div>
-                    <div class="col-4">
-                        <a href="products-details.html"><img src="images/product-11.jpg"></a>
-                        <h4>Loafers Men (Gray)</h4>
-                        <div class="rating">
-                            <i class="fa fa-star-o" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star-o" ></i>
-                        </div>
-                        <p>$15.00</p>
-                    </div>
-                    <div class="col-4">
-                        <a href="products-details.html"><img src="images/product-12.jpg"></a>
-                        <h4>Lace-Fastening white Shoes</h4>
-                        <div class="rating">
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star" ></i>
-                            <i class="fa fa-star-o" ></i>
-                            <i class="fa fa-star-o" ></i>
-                        </div>
-                        <p>$21.00</p>
-                    </div>  
-                </div>
-            
-            <div class="page-btn">
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>4</span>
-                <span>&#8594;</span>
-            </div>
-            
+    </div>
+
+    <div class="small-container">
+        <div class="row row-2">
+            <h2>All Products</h2>
+            <select id="sortSelect" onchange="sortProducts()">
+                <option value="default">Default sorting</option>
+                <option value="priceLow">Price: Low to High</option>
+                <option value="priceHigh">Price: High to Low</option>
+                <option value="rating">Sort by rating</option>
+            </select>
         </div>
         
+        <!-- Products Grid -->
+        <div class="row" id="productsGrid">
+            <div class="col-4" data-price="3999" data-rating="4.5">
+                <a href="products-details.html"><img src="images/product-11.jpg"></a>
+                <a href="products-details.html"><h4>Downshifter Sports Shoes</h4></a>
+                <div class="rating">
+                    <i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star-half-o" ></i><i class="fa fa-star-o" ></i>
+                </div>
+                <p>₹3,999.00</p>
+            </div>
+            <div class="col-4" data-price="2499" data-rating="4.5">
+                <a href="products-details.html"><img src="images/product-2.jpg"></a>
+                <h4>Lace-Up Running Shoes</h4>
+                <div class="rating">
+                    <i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star-half-o" ></i>
+                </div>
+                <p>₹2,499.00</p>
+            </div>
+            <div class="col-4" data-price="1099" data-rating="4">
+                <a href="products-details.html"><img src="images/product-3.jpg"></a>
+                <h4>Lace Fastening Shoes</h4>
+                <div class="rating">
+                    <i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star-o" ></i>
+                </div>
+                <p>₹1,099.00</p>
+            </div>
+            <div class="col-4" data-price="3299" data-rating="3">
+                <a href="products-details.html"><img src="images/product-10.jpg"></a>
+                <h4>Flat Lace-Fastening Shoes</h4>
+                <div class="rating">
+                    <i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star-o" ></i><i class="fa fa-star-o" ></i>
+                </div>
+                <p>₹3,299.00</p>
+            </div>  
+            <!-- Row 2 Items moved into same container for global sorting -->
+            <div class="col-4" data-price="3499" data-rating="4.5">
+                <a href="products-details.html"><img src="images/product-5.jpg"></a>
+                <h4>Flat Heel gray shoes</h4>
+                <div class="rating">
+                    <i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star-half-o" ></i><i class="fa fa-star-o" ></i>
+                </div>
+                <p>₹3,499.00</p>
+            </div>
+            <div class="col-4" data-price="1499" data-rating="4.5">
+                <a href="products-details.html"><img src="images/product-3.jpg"></a>
+                <h4>Lace-Fastening black Shoes</h4>
+                <div class="rating">
+                    <i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star-half-o" ></i>
+                </div>
+                <p>₹1,499.00</p>
+            </div>
+            <div class="col-4" data-price="499" data-rating="4">
+                <a href="products-details.html"><img src="images/product-7.jpg"></a>
+                <h4>HRX Men's cotton socks</h4>
+                <div class="rating">
+                    <i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star-o" ></i>
+                </div>
+                <p>₹499.00</p>
+            </div>
+            <div class="col-4" data-price="599" data-rating="4.5">
+                <a href="products-details.html"><img src="images/product-7.jpg"></a>
+                <h4>HRX cotton socks</h4>
+                <div class="rating">
+                    <i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star-half-o" ></i><i class="fa fa-star-o" ></i>
+                </div>
+                <p>₹599.00</p>
+            </div>
+            <div class="col-4" data-price="1199" data-rating="3">
+                <a href="products-details.html"><img src="images/product-11.jpg"></a>
+                <h4>Loafers Men (Gray)</h4>
+                <div class="rating">
+                    <i class="fa fa-star-o" ></i><i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star-o" ></i>
+                </div>
+                <p>₹1,199.00</p>
+            </div>
+            <div class="col-4" data-price="1599" data-rating="3">
+                <a href="products-details.html"><img src="images/product-12.jpg"></a>
+                <h4>Lace-Fastening white Shoes</h4>
+                <div class="rating">
+                    <i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star" ></i><i class="fa fa-star-o" ></i><i class="fa fa-star-o" ></i>
+                </div>
+                <p>₹1,599.00</p>
+            </div>  
+        </div>
         
-        <!----------------------------------footer------------------------------------->
-        <div class ="footer">
+        <div class="page-btn">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>&#8594;</span>
+        </div>
+    </div>
+    
+    <div class="footer">
         <div class="container">
-            
             <div class="row">
                 <div class="footer-col-1">
                     <h3>Download Our App</h3>
@@ -256,32 +167,52 @@
                        <li>Youtube</li>
                     </ul>
                 </div>
-                
             </div>
-            
-            <hr><!--horizontal line-->
-            <p class="copyright">Copyright 2021 - Apurba Kr. Pramanik</p>
-            
+            <hr>
+            <p class="copyright">Copyright 2025 - Atharv Pose</p>
         </div>
     </div>
-        
-        
-        <!-----------------------------------js for toggle menu----------------------------------------------->
-        <script>
-            var menuItems=document.getElementById("MenuItems");
-            
-            if(window.innerWidth <= 800) {
-                 menuItems.style.maxHeight = "0px";
+    
+    <script>
+        var menuItems = document.getElementById("MenuItems");
+        if(window.innerWidth <= 800) { menuItems.style.maxHeight = "0px"; }
+        function menutoggle(){
+            if(menuItems.style.maxHeight == "0px"){ menuItems.style.maxHeight = "200px"; }
+            else{ menuItems.style.maxHeight = "0px"; }
+        }
+
+        // --- Sorting Logic ---
+        function sortProducts() {
+            var sortValue = document.getElementById("sortSelect").value;
+            var container = document.getElementById("productsGrid");
+            var items = Array.from(container.getElementsByClassName("col-4"));
+
+            if (sortValue === "default") {
+                // In a real app we might have an original index, 
+                // here we just reload or keep as is.
+                return; 
             }
 
-            function menutoggle(){
-                if(menuItems.style.maxHeight == "0px"){
-                    menuItems.style.maxHeight="200px";
+            items.sort(function(a, b) {
+                var priceA = parseFloat(a.getAttribute("data-price"));
+                var priceB = parseFloat(b.getAttribute("data-price"));
+                var ratingA = parseFloat(a.getAttribute("data-rating"));
+                var ratingB = parseFloat(b.getAttribute("data-rating"));
+
+                if (sortValue === "priceLow") {
+                    return priceA - priceB;
+                } else if (sortValue === "priceHigh") {
+                    return priceB - priceA;
+                } else if (sortValue === "rating") {
+                    return ratingB - ratingA;
                 }
-                else{
-                    menuItems.style.maxHeight="0px";
-                }
-            }
-        </script>
-    </body>
+            });
+
+            // Re-append items in sorted order
+            items.forEach(function(item) {
+                container.appendChild(item);
+            });
+        }
+    </script>
+</body>
 </html>

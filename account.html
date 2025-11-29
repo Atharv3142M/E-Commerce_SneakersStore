@@ -1,77 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Account - Redstore</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
-    <body>
-        <div class="container">
-            <div class="navbar">
-                <div class="logo">
-                    <a href="index.html"><img src="images/logo.png" width="125px"></a>
-                </div>
-                 <nav>
-                    <ul id="MenuItems">
-                        <li><a href="index.html">Home</a></li>
-                         <li><a href="products.html">Products</a></li>
-                         <li><a href="">About</a></li>
-                         <li><a href="">Contact</a></li>
-                         <li><a href="account.html">Account</a></li>
-                    </ul>
-                </nav>
-                <a href="cart.html"><img src="images/cart.png" width="30px" height="30px"></a>
-                <img src="images/menu.png" class="menu-icon" onClick="menutoggle()" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account - Redstore</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="images/logo.png" width="125px"></a>
             </div>
+            <nav>
+                <ul id="MenuItems">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="account.html">Account</a></li>
+                </ul>
+            </nav>
+            <a href="cart.html"><img src="images/cart.png" width="30px" height="30px"></a>
+            <img src="images/menu.png" class="menu-icon" onClick="menutoggle()" >
         </div>
-    
-        
-        <!------------------------------ account-page details------------------------------>
+    </div>
 
-        <div class="account-page">
-            <div class="container">
-                <div class="row">
-                    <div class="col-2">
-                        <img src="images/image1.png" width="100%">
-                    </div>
-                    <div class="col-2">
-                        <div class="form-container">
-                            <div class="form-btn">
-                                <span onclick="login()">Login</span>
-                                <span onclick="register()">Register</span>
-                                <hr id="Indicator">
-                            </div>
-                            <!-- Updated Forms: Login is default visible -->
-                            <form id="LoginForm">
-                                <input type="text" placeholder="Username">
-                                <input type="password" placeholder="Password">
-                                <button type="submit" class="btn">Login</button>
-                                <a href="">Forgot password</a>
-                            </form>
-                            
-                            <form id="RegForm">
-                                <input type="text" placeholder="Username">
-                                <input type="email" placeholder="Email">
-                                <input type="password" placeholder="Password">
-                                <button type="submit" class="btn">Register</button>
-                            </form>
-                        </div>
-                    </div>
+    <div class="account-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <img src="images/image1.png" width="100%">
                 </div>
-                    
+                <div class="col-2">
+                    <!-- Auth Container (Shows if NOT logged in) -->
+                    <div class="form-container" id="authContainer">
+                        <div class="form-btn">
+                            <span onclick="login()">Login</span>
+                            <span onclick="register()">Register</span>
+                            <hr id="Indicator">
+                        </div>
+                        <form id="LoginForm" onsubmit="handleLogin(event)">
+                            <input type="text" id="loginUsername" placeholder="Username" required>
+                            <input type="password" id="loginPassword" placeholder="Password" required>
+                            <button type="submit" class="btn">Login</button>
+                            <a href="">Forgot password</a>
+                        </form>
+                        
+                        <form id="RegForm" onsubmit="handleRegister(event)">
+                            <input type="text" id="regUsername" placeholder="Username" required>
+                            <input type="email" id="regEmail" placeholder="Email" required>
+                            <input type="password" id="regPassword" placeholder="Password" required>
+                            <button type="submit" class="btn">Register</button>
+                        </form>
+                    </div>
+
+                    <!-- Profile Container (Shows if logged in) -->
+                    <div class="user-profile" id="profileContainer">
+                        <h2>My Profile</h2>
+                        <br>
+                        <form onsubmit="updateDetails(event)">
+                            <label style="text-align:left; display:block;">Username</label>
+                            <input type="text" id="profileUsername" >
+                            
+                            <label style="text-align:left; display:block;">Email</label>
+                            <input type="email" id="profileEmail" >
+                            
+                            <button type="submit" class="btn">Update Details</button>
+                            <button type="button" class="btn" style="background:#333;" onclick="handleLogout()">Logout</button>
+                        </form>
+                    </div>
+
+                </div>
             </div>
         </div>
-        
-       
-        <!----------------------------------footer------------------------------------->
-        <div class ="footer">
+    </div>
+
+    <div class="footer">
         <div class="container">
-            
             <div class="row">
                 <div class="footer-col-1">
                     <h3>Download Our App</h3>
@@ -87,69 +96,139 @@
                 </div>
                 <div class="footer-col-3">
                     <h3>Useful Links</h3>
-                   <ul>
-                       <li>Coupons</li>
-                       <li>Blog Post</li>
-                       <li>Return Policy</li>
-                       <li>Join Affiliate</li>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Blog Post</li>
+                        <li>Return Policy</li>
+                        <li>Join Affiliate</li>
                     </ul>
                 </div>
                 <div class="footer-col-4">
                     <h3>Follow us</h3>
-                   <ul>
-                       <li>Facebook</li>
-                       <li>Twitter</li>
-                       <li>Instagram</li>
-                       <li>Youtube</li>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Twitter</li>
+                        <li>Instagram</li>
+                        <li>Youtube</li>
                     </ul>
                 </div>
-                
             </div>
-            
-            <hr><!--horizontal line-->
+            <hr>
             <p class="copyright">Copyright 2025 - Atharv Pose</p>
-            
         </div>
     </div>
-        
-        
-        <!-----------------------------------js for toggle menu-------------------------------------->
-        <script>
-            var menuItems = document.getElementById("MenuItems");
-            
-            if(window.innerWidth <= 800) {
-                 menuItems.style.maxHeight = "0px";
-            }
 
-            function menutoggle(){
-                if(menuItems.style.maxHeight == "0px"){
-                    menuItems.style.maxHeight = "200px";
-                }
-                else{
-                    menuItems.style.maxHeight = "0px";
-                }
-            }
-        </script>
-        
-        <!-----------------------------------js for toggle form-------------------------------------->
-        <script>
-            var LoginForm = document.getElementById("LoginForm");
-            var RegForm = document.getElementById("RegForm");
-            var Indicator = document.getElementById("Indicator");
-            
-            // Default State: Login is Visible (translateX 0), Register is hidden (translateX 300)
-            
-            function register(){
-                RegForm.style.transform = "translateX(-300px)";
-                LoginForm.style.transform = "translateX(-300px)";
-                Indicator.style.transform = "translateX(100px)"
-            }
-            function login(){
-                RegForm.style.transform = "translateX(0px)";
-                LoginForm.style.transform = "translateX(0px)";
-                Indicator.style.transform = "translateX(0px)";
-            }
-        </script>
+    <script>
+        var menuItems = document.getElementById("MenuItems");
+        if(window.innerWidth <= 800) { menuItems.style.maxHeight = "0px"; }
+        function menutoggle(){
+            if(menuItems.style.maxHeight == "0px"){ menuItems.style.maxHeight = "200px"; }
+            else{ menuItems.style.maxHeight = "0px"; }
+        }
 
-    </body>
+        // --- Toggle Form Animation ---
+        var LoginForm = document.getElementById("LoginForm");
+        var RegForm = document.getElementById("RegForm");
+        var Indicator = document.getElementById("Indicator");
+        
+        function register(){
+            RegForm.style.transform = "translateX(-300px)";
+            LoginForm.style.transform = "translateX(-300px)";
+            Indicator.style.transform = "translateX(100px)";
+        }
+        function login(){
+            RegForm.style.transform = "translateX(0px)";
+            LoginForm.style.transform = "translateX(0px)";
+            Indicator.style.transform = "translateX(0px)";
+        }
+
+        // --- Auth Logic (Local Storage) ---
+        const authContainer = document.getElementById('authContainer');
+        const profileContainer = document.getElementById('profileContainer');
+        const profileUsername = document.getElementById('profileUsername');
+        const profileEmail = document.getElementById('profileEmail');
+
+        function checkLoginStatus() {
+            const currentUser = localStorage.getItem('currentUser');
+            if (currentUser) {
+                // User is logged in
+                const user = JSON.parse(currentUser);
+                authContainer.style.display = 'none';
+                profileContainer.style.display = 'block';
+                profileUsername.value = user.username;
+                profileEmail.value = user.email;
+            } else {
+                // User is logged out
+                authContainer.style.display = 'block';
+                profileContainer.style.display = 'none';
+            }
+        }
+
+        function handleRegister(e) {
+            e.preventDefault();
+            const username = document.getElementById('regUsername').value;
+            const email = document.getElementById('regEmail').value;
+            const password = document.getElementById('regPassword').value;
+
+            // Simple storage (In a real app, use a DB)
+            const user = { username, email, password };
+            localStorage.setItem('registeredUser', JSON.stringify(user));
+            alert("Registration Successful! Please Login.");
+            login(); // Switch to login tab
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const usernameInput = document.getElementById('loginUsername').value;
+            const passwordInput = document.getElementById('loginPassword').value;
+
+            const storedUser = localStorage.getItem('registeredUser');
+            
+            if (storedUser) {
+                const user = JSON.parse(storedUser);
+                if (user.username === usernameInput && user.password === passwordInput) {
+                    // Success
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    checkLoginStatus();
+                    alert("Logged In Successfully!");
+                } else {
+                    alert("Invalid Credentials!");
+                }
+            } else {
+                alert("No user registered! Please register first.");
+            }
+        }
+
+        function updateDetails(e) {
+            e.preventDefault();
+            const newUsername = profileUsername.value;
+            const newEmail = profileEmail.value;
+            
+            // Get current registered user to keep password same
+            const storedUser = JSON.parse(localStorage.getItem('registeredUser'));
+            
+            const updatedUser = {
+                username: newUsername,
+                email: newEmail,
+                password: storedUser.password 
+            };
+
+            // Update both registered record and current session
+            localStorage.setItem('registeredUser', JSON.stringify(updatedUser));
+            localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+            
+            alert("Details Updated!");
+        }
+
+        function handleLogout() {
+            localStorage.removeItem('currentUser');
+            checkLoginStatus();
+            alert("Logged Out");
+        }
+
+        // Initialize
+        checkLoginStatus();
+
+    </script>
+</body>
 </html>
