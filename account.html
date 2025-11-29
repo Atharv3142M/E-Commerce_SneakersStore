@@ -1,19 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width-device-width, initial-scale=1.0">
-        <title>All Products - Redstore</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Account - Redstore</title>
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-        <!--added a cdn link by searching font awesome4 cdn and getting this link from https://www.bootstrapcdn.com/fontawesome/ this url*/-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
     </head>
     <body>
-        <!--<div class ="header">-->
         <div class="container">
             <div class="navbar">
                 <div class="logo">
@@ -26,15 +23,12 @@
                          <li><a href="">About</a></li>
                          <li><a href="">Contact</a></li>
                          <li><a href="account.html">Account</a></li>
-
                     </ul>
                 </nav>
                 <a href="cart.html"><img src="images/cart.png" width="30px" height="30px"></a>
                 <img src="images/menu.png" class="menu-icon" onClick="menutoggle()" >
             </div>
-           
         </div>
-    <!--</div>-->
     
         
         <!------------------------------ account-page details------------------------------>
@@ -52,18 +46,18 @@
                                 <span onclick="register()">Register</span>
                                 <hr id="Indicator">
                             </div>
-                            <!-- Form IDs kept the same, logic updated to show Login by default -->
+                            <!-- Updated Forms: Login is default visible -->
                             <form id="LoginForm">
-                                <input type="text" placeholder="username">
-                                <input type="password" placeholder="password">
+                                <input type="text" placeholder="Username">
+                                <input type="password" placeholder="Password">
                                 <button type="submit" class="btn">Login</button>
                                 <a href="">Forgot password</a>
                             </form>
                             
                             <form id="RegForm">
-                                <input type="text" placeholder="username">
-                                <input type="email" placeholder="email">
-                                <input type="password" placeholder="password">
+                                <input type="text" placeholder="Username">
+                                <input type="email" placeholder="Email">
+                                <input type="password" placeholder="Password">
                                 <button type="submit" class="btn">Register</button>
                             </form>
                         </div>
@@ -113,7 +107,7 @@
             </div>
             
             <hr><!--horizontal line-->
-            <p class="copyright">Copyright 2021 - Apurba Kr. Pramanik</p>
+            <p class="copyright">Copyright 2025 - Atharv Pose</p>
             
         </div>
     </div>
@@ -121,7 +115,7 @@
         
         <!-----------------------------------js for toggle menu-------------------------------------->
         <script>
-            var menuItems=document.getElementById("MenuItems");
+            var menuItems = document.getElementById("MenuItems");
             
             if(window.innerWidth <= 800) {
                  menuItems.style.maxHeight = "0px";
@@ -129,34 +123,31 @@
 
             function menutoggle(){
                 if(menuItems.style.maxHeight == "0px"){
-                    menuItems.style.maxHeight="200px";
+                    menuItems.style.maxHeight = "200px";
                 }
                 else{
-                    menuItems.style.maxHeight="0px";
+                    menuItems.style.maxHeight = "0px";
                 }
             }
         </script>
         
         <!-----------------------------------js for toggle form-------------------------------------->
         <script>
-            var LoginForm=document.getElementById("LoginForm");
-            var RegForm=document.getElementById("RegForm");
-            var Indicator=document.getElementById("Indicator");
+            var LoginForm = document.getElementById("LoginForm");
+            var RegForm = document.getElementById("RegForm");
+            var Indicator = document.getElementById("Indicator");
             
-            // Logic updated for Login Default:
-            // Login is at 0px, Register is at 300px.
-            // When Register clicked: Both move left by 300px (translateX -300px)
-            // When Login clicked: Both move back to 0 (translateX 0px)
-
+            // Default State: Login is Visible (translateX 0), Register is hidden (translateX 300)
+            
             function register(){
-                RegForm.style.transform="translateX(-300px)";
-                LoginForm.style.transform="translateX(-300px)";
-                Indicator.style.transform="translateX(100px)"
+                RegForm.style.transform = "translateX(-300px)";
+                LoginForm.style.transform = "translateX(-300px)";
+                Indicator.style.transform = "translateX(100px)"
             }
             function login(){
-                RegForm.style.transform="translateX(0px)";
-                LoginForm.style.transform="translateX(0px)";
-                Indicator.style.transform="translateX(0px)";
+                RegForm.style.transform = "translateX(0px)";
+                LoginForm.style.transform = "translateX(0px)";
+                Indicator.style.transform = "translateX(0px)";
             }
         </script>
 

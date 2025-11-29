@@ -1,19 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>All Products - Redstore</title>
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-        <!--added a cdn link by searching font awesome4 cdn and getting this link from https://www.bootstrapcdn.com/fontawesome/ this url*/-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
     </head>
     <body>
-        <!--<div class ="header">-->
         <div class="container">
             <div class="navbar">
                 <div class="logo">
@@ -26,15 +23,12 @@
                          <li><a href="">About</a></li>
                          <li><a href="">Contact</a></li>
                          <li><a href="account.html">Account</a></li>
-
                     </ul>
                 </nav>
                 <a href="cart.html"><img src="images/cart.png" width="30px" height="30px"></a>
                 <img src="images/menu.png" class="menu-icon" onClick="menutoggle()" >
             </div>
-           
         </div>
-    <!--</div>-->
     
         
         <!------------------------------ cart items details------------------------------>
@@ -52,41 +46,41 @@
                         <img src="images/buy-1.jpg">
                         <div>
                             <p>Red Printed T-Shirt</p>
-                            <small>Price: $50.00</small><br>
+                            <small>Price: ₹3,500.00</small><br>
                             <a href="#" onclick="removeItem(this)">Remove</a>
                         </div>
                     </div>
                 </td>
                 <td><input type="number" value="1" onchange="updateTotal()"></td>
-                <td>$50.00</td>
+                <td>₹3,500.00</td>
             </tr>
             <tr>
                 <td>
                     <div class="cart-info">
                         <img src="images/buy-2.jpg">
                         <div>
-                            <p>Red Printed T-Shirt</p>
-                            <small>Price: $50.00</small><br>
+                            <p>Black Sports Shoes</p>
+                            <small>Price: ₹2,500.00</small><br>
                             <a href="#" onclick="removeItem(this)">Remove</a>
                         </div>
                     </div>
                 </td>
                 <td><input type="number" value="1" onchange="updateTotal()"></td>
-                <td>$50.00</td>
+                <td>₹2,500.00</td>
             </tr>
             <tr>
                 <td>
                     <div class="cart-info">
                         <img src="images/buy-3.jpg">
                         <div>
-                            <p>Red Printed T-Shirt</p>
-                            <small>Price: $50.00</small><br>
+                            <p>Gray Track Pants</p>
+                            <small>Price: ₹1,500.00</small><br>
                             <a href="#" onclick="removeItem(this)">Remove</a>
                         </div>
                     </div>
                 </td>
                 <td><input type="number" value="1" onchange="updateTotal()"></td>
-                <td>$50.00</td>
+                <td>₹1,500.00</td>
             </tr>
             </table>
             
@@ -94,15 +88,15 @@
                 <table>
                     <tr>
                         <td>Subtotal</td>
-                        <td id="cart-subtotal">$200.00</td>
+                        <td id="cart-subtotal">₹7,500.00</td>
                     </tr>
                     <tr>
                         <td>Tax</td>
-                        <td id="cart-tax">$35.00</td>
+                        <td id="cart-tax">₹250.00</td>
                     </tr>
                     <tr>
                         <td>Total</td>
-                        <td id="cart-total">$230.00</td>
+                        <td id="cart-total">₹7,750.00</td>
                     </tr>
                 </table>
             </div>
@@ -149,7 +143,7 @@
             </div>
             
             <hr><!--horizontal line-->
-            <p class="copyright">Copyright 2021 - Apurba Kr. Pramanik</p>
+            <p class="copyright">Copyright 2025 - Atharv Pose</p>
             
         </div>
     </div>
@@ -157,7 +151,7 @@
         
         <!-----------------------------------js for toggle menu-------------------------------------->
         <script>
-            var menuItems=document.getElementById("MenuItems");
+            var menuItems = document.getElementById("MenuItems");
             
             if(window.innerWidth <= 800) {
                  menuItems.style.maxHeight = "0px";
@@ -165,20 +159,18 @@
 
             function menutoggle(){
                 if(menuItems.style.maxHeight == "0px"){
-                    menuItems.style.maxHeight="200px";
+                    menuItems.style.maxHeight = "200px";
                 }
                 else{
-                    menuItems.style.maxHeight="0px";
+                    menuItems.style.maxHeight = "0px";
                 }
             }
         </script>
 
-        <!-- Script for Cart Functionality -->
+        <!-- Script for Cart Functionality (Updated for INR) -->
         <script>
             function removeItem(element) {
-                // Prevent link jump
                 event.preventDefault();
-                // Find the row (tr) and remove it
                 var row = element.parentElement.parentElement.parentElement.parentElement;
                 row.remove();
                 updateTotal();
@@ -189,7 +181,6 @@
                 var rows = table.getElementsByTagName("tr");
                 var subtotal = 0;
 
-                // Loop through rows (skip header row 0)
                 for (var i = 1; i < rows.length; i++) {
                     var row = rows[i];
                     var priceElement = row.querySelector("small");
@@ -197,12 +188,11 @@
                     var subtotalElement = row.cells[2];
 
                     if (priceElement && quantityElement) {
-                        // Extract price number from string "Price: $50.00"
-                        var priceText = priceElement.innerText.replace("Price: $", "");
+                        // Updated to remove "Price: ₹" or "Price: " and commas
+                        var priceText = priceElement.innerText.replace(/[^0-9.]/g, ''); 
                         var price = parseFloat(priceText);
                         var quantity = quantityElement.value;
                         
-                        // Prevent negative quantity
                         if(quantity < 1) {
                             quantity = 1;
                             quantityElement.value = 1;
@@ -211,24 +201,22 @@
                         var rowTotal = price * quantity;
                         subtotal += rowTotal;
 
-                        // Update row subtotal display
-                        subtotalElement.innerText = "$" + rowTotal.toFixed(2);
+                        // Display with Comma separation for INR
+                        subtotalElement.innerText = "₹" + rowTotal.toLocaleString('en-IN') + ".00";
                     }
                 }
 
-                // Update bottom totals
-                var tax = 35.00; // Fixed tax for this example
+                var tax = 250.00; // Fixed tax for INR
                 var total = subtotal + tax;
                 
-                // If cart is empty, handle edge case
                 if (subtotal === 0) {
                      tax = 0;
                      total = 0;
                 }
 
-                document.getElementById("cart-subtotal").innerText = "$" + subtotal.toFixed(2);
-                document.getElementById("cart-tax").innerText = "$" + tax.toFixed(2);
-                document.getElementById("cart-total").innerText = "$" + total.toFixed(2);
+                document.getElementById("cart-subtotal").innerText = "₹" + subtotal.toLocaleString('en-IN') + ".00";
+                document.getElementById("cart-tax").innerText = "₹" + tax.toLocaleString('en-IN') + ".00";
+                document.getElementById("cart-total").innerText = "₹" + total.toLocaleString('en-IN') + ".00";
             }
         </script>
      
