@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-    
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>All Products - Redstore</title>
+        <title>Cart - Redstore</title>
         <link rel="stylesheet" href="style.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
@@ -30,201 +28,136 @@
             </div>
         </div>
     
-        
         <!------------------------------ cart items details------------------------------>
-
         <div class="small-container cart-page">
-        <table id="cartTable">
-            <tr>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Subtotal</th>
-            </tr>
-            <tr>
-                <td>
-                    <div class="cart-info">
-                        <img src="images/buy-1.jpg">
-                        <div>
-                            <p>Red Printed T-Shirt</p>
-                            <small>Price: ₹3,500.00</small><br>
-                            <a href="#" onclick="removeItem(this)">Remove</a>
-                        </div>
-                    </div>
-                </td>
-                <td><input type="number" value="1" onchange="updateTotal()"></td>
-                <td>₹3,500.00</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="cart-info">
-                        <img src="images/buy-2.jpg">
-                        <div>
-                            <p>Black Sports Shoes</p>
-                            <small>Price: ₹2,500.00</small><br>
-                            <a href="#" onclick="removeItem(this)">Remove</a>
-                        </div>
-                    </div>
-                </td>
-                <td><input type="number" value="1" onchange="updateTotal()"></td>
-                <td>₹2,500.00</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="cart-info">
-                        <img src="images/buy-3.jpg">
-                        <div>
-                            <p>Gray Track Pants</p>
-                            <small>Price: ₹1,500.00</small><br>
-                            <a href="#" onclick="removeItem(this)">Remove</a>
-                        </div>
-                    </div>
-                </td>
-                <td><input type="number" value="1" onchange="updateTotal()"></td>
-                <td>₹1,500.00</td>
-            </tr>
+            <table id="cartTable">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody id="cartTableBody">
+                    <!-- Rows will be populated by JS -->
+                </tbody>
             </table>
             
             <div class="total-price">
                 <table>
                     <tr>
                         <td>Subtotal</td>
-                        <td id="cart-subtotal">₹7,500.00</td>
+                        <td id="cart-subtotal">₹0.00</td>
                     </tr>
                     <tr>
                         <td>Tax</td>
-                        <td id="cart-tax">₹250.00</td>
+                        <td id="cart-tax">₹0.00</td>
                     </tr>
                     <tr>
                         <td>Total</td>
-                        <td id="cart-total">₹7,750.00</td>
+                        <td id="cart-total">₹0.00</td>
                     </tr>
                     <tr>
-                        <!-- Added Checkout Button -->
                         <td colspan="2" style="text-align: center; border: none;">
-                            <a href="checkout.html" class="btn">Proceed to Checkout</a>
+                            <a href="checkout.html" class="btn" id="checkoutBtn">Proceed to Checkout</a>
                         </td>
                     </tr>
                 </table>
             </div>
         </div>
         
-        
-       
-        <!----------------------------------footer------------------------------------->
         <div class ="footer">
-        <div class="container">
-            
-            <div class="row">
-                <div class="footer-col-1">
-                    <h3>Download Our App</h3>
-                    <p>Download App for Android and ios mobile phone.</p>
-                    <div class="app-logo">
-                        <img src="images/play-store.png" alt="">
-                        <img src="images/app-store.png" alt="">
-                    </div>
-                </div>
-                <div class="footer-col-2">
-                    <img src="images/logo-white.png">
-                    <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.</p>
-                </div>
-                <div class="footer-col-3">
-                    <h3>Useful Links</h3>
-                   <ul>
-                       <li>Coupons</li>
-                       <li>Blog Post</li>
-                       <li>Return Policy</li>
-                       <li>Join Affiliate</li>
-                    </ul>
-                </div>
-                <div class="footer-col-4">
-                    <h3>Follow us</h3>
-                   <ul>
-                       <li>Facebook</li>
-                       <li>Twitter</li>
-                       <li>Instagram</li>
-                       <li>Youtube</li>
-                    </ul>
-                </div>
-                
+            <div class="container">
+                <hr>
+                <p class="copyright">Copyright 2025 - Atharv Pose</p>
             </div>
-            
-            <hr><!--horizontal line-->
-            <p class="copyright">Copyright 2025 - Atharv Pose</p>
-            
         </div>
-    </div>
         
-        
-        <!-----------------------------------js for toggle menu-------------------------------------->
         <script>
             var menuItems = document.getElementById("MenuItems");
-            
-            if(window.innerWidth <= 800) {
-                 menuItems.style.maxHeight = "0px";
-            }
-
+            if(window.innerWidth <= 800) { menuItems.style.maxHeight = "0px"; }
             function menutoggle(){
                 if(menuItems.style.maxHeight == "0px"){
                     menuItems.style.maxHeight = "200px";
-                }
-                else{
+                } else{
                     menuItems.style.maxHeight = "0px";
                 }
             }
-        </script>
 
-        <!-- Script for Cart Functionality (Updated for INR) -->
-        <script>
-            function removeItem(element) {
-                event.preventDefault();
-                var row = element.parentElement.parentElement.parentElement.parentElement;
-                row.remove();
-                updateTotal();
-            }
-
-            function updateTotal() {
-                var table = document.getElementById("cartTable");
-                var rows = table.getElementsByTagName("tr");
+            // --- Load Cart Items Logic ---
+            function loadCart() {
+                var cart = JSON.parse(localStorage.getItem("redstore_cart")) || [];
+                var tableBody = document.getElementById("cartTableBody");
                 var subtotal = 0;
 
-                for (var i = 1; i < rows.length; i++) {
-                    var row = rows[i];
-                    var priceElement = row.querySelector("small");
-                    var quantityElement = row.querySelector("input");
-                    var subtotalElement = row.cells[2];
+                tableBody.innerHTML = ""; // Clear existing rows
 
-                    if (priceElement && quantityElement) {
-                        // Updated to remove "Price: ₹" or "Price: " and commas
-                        var priceText = priceElement.innerText.replace(/[^0-9.]/g, ''); 
-                        var price = parseFloat(priceText);
-                        var quantity = quantityElement.value;
-                        
-                        if(quantity < 1) {
-                            quantity = 1;
-                            quantityElement.value = 1;
-                        }
-
-                        var rowTotal = price * quantity;
-                        subtotal += rowTotal;
-
-                        // Display with Comma separation for INR
-                        subtotalElement.innerText = "₹" + rowTotal.toLocaleString('en-IN') + ".00";
-                    }
+                if (cart.length === 0) {
+                    tableBody.innerHTML = "<tr><td colspan='3' style='text-align:center; padding:20px;'>Your Cart is Empty</td></tr>";
+                    document.getElementById("checkoutBtn").style.display = "none";
+                    updateTotals(0);
+                    return;
+                } else {
+                    document.getElementById("checkoutBtn").style.display = "inline-block";
                 }
 
-                var tax = 250.00; // Fixed tax for INR
-                var total = subtotal + tax;
-                
-                if (subtotal === 0) {
-                     tax = 0;
-                     total = 0;
-                }
+                cart.forEach((item, index) => {
+                    var itemTotal = item.price * item.quantity;
+                    subtotal += itemTotal;
 
-                document.getElementById("cart-subtotal").innerText = "₹" + subtotal.toLocaleString('en-IN') + ".00";
-                document.getElementById("cart-tax").innerText = "₹" + tax.toLocaleString('en-IN') + ".00";
-                document.getElementById("cart-total").innerText = "₹" + total.toLocaleString('en-IN') + ".00";
+                    var row = `
+                        <tr>
+                            <td>
+                                <div class="cart-info">
+                                    <img src="${item.image}">
+                                    <div>
+                                        <p>${item.name}</p>
+                                        <small>Price: ₹${item.price.toLocaleString('en-IN')}</small>
+                                        <br>
+                                        <small>Size: ${item.size}</small>
+                                        <br>
+                                        <a href="#" onclick="removeItem(${index})">Remove</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)">
+                            </td>
+                            <td>₹${itemTotal.toLocaleString('en-IN')}</td>
+                        </tr>
+                    `;
+                    tableBody.innerHTML += row;
+                });
+
+                updateTotals(subtotal);
             }
+
+            function updateTotals(subtotal) {
+                var tax = subtotal > 0 ? 250 : 0; // Flat tax if cart not empty
+                var total = subtotal + tax;
+
+                document.getElementById("cart-subtotal").innerText = "₹" + subtotal.toLocaleString('en-IN');
+                document.getElementById("cart-tax").innerText = "₹" + tax.toLocaleString('en-IN');
+                document.getElementById("cart-total").innerText = "₹" + total.toLocaleString('en-IN');
+            }
+
+            function removeItem(index) {
+                var cart = JSON.parse(localStorage.getItem("redstore_cart")) || [];
+                cart.splice(index, 1);
+                localStorage.setItem("redstore_cart", JSON.stringify(cart));
+                loadCart(); // Refresh view
+            }
+
+            function updateQuantity(index, newQty) {
+                if (newQty < 1) newQty = 1;
+                var cart = JSON.parse(localStorage.getItem("redstore_cart")) || [];
+                cart[index].quantity = parseInt(newQty);
+                localStorage.setItem("redstore_cart", JSON.stringify(cart));
+                loadCart(); // Refresh view
+            }
+
+            // Initial load
+            loadCart();
         </script>
-     
     </body>
 </html>
