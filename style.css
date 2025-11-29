@@ -512,11 +512,12 @@ form .btn:focus{
     outline: none;
 }
 
+/* Updated positions for Login Default */
 #LoginForm{
-    left: -300px;
+    left: 0;
 }
 #RegForm{
-    left: 0;
+    left: 300px;
 }
 form a{
     font-size: 12px;
@@ -528,7 +529,7 @@ form a{
     background: #ff523b;
     height: 3px;
     margin-top: 8px;
-    transform: translateX(100px);
+    /* Updated transform for Login Default */
+    transform: translateX(0px); 
     transition: transform 1s;
-
 }

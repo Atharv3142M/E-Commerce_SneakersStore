@@ -363,13 +363,21 @@
         <script>
             var menuItems=document.getElementById("MenuItems");
             
-            MenuItems.style.maxHeight="0px";
+            // Note: We do NOT set max-height to 0px here initially.
+            // We rely on CSS to set the initial state for mobile.
+            // If we set it here, it might hide the menu on desktop (where width > 800px).
+
+            // However, to ensure the toggle logic works on the very first click on mobile:
+            if(window.innerWidth <= 800) {
+                 menuItems.style.maxHeight = "0px";
+            }
+
             function menutoggle(){
-                if(MenuItems.style.maxHeight == "0px"){
-                    MenuItems.style.maxHeight="200px";
+                if(menuItems.style.maxHeight == "0px"){
+                    menuItems.style.maxHeight="200px";
                 }
                 else{
-                    MenuItems.style.maxHeight="0px";
+                    menuItems.style.maxHeight="0px";
                 }
             }
         </script>

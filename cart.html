@@ -40,7 +40,7 @@
         <!------------------------------ cart items details------------------------------>
 
         <div class="small-container cart-page">
-        <table>
+        <table id="cartTable">
             <tr>
                 <th>Product</th>
                 <th>Quantity</th>
@@ -53,11 +53,11 @@
                         <div>
                             <p>Red Printed T-Shirt</p>
                             <small>Price: $50.00</small><br>
-                            <a href="">Remove</a>
+                            <a href="#" onclick="removeItem(this)">Remove</a>
                         </div>
                     </div>
                 </td>
-                <td><input type="number" vlaue="1"></td>
+                <td><input type="number" value="1" onchange="updateTotal()"></td>
                 <td>$50.00</td>
             </tr>
             <tr>
@@ -67,11 +67,11 @@
                         <div>
                             <p>Red Printed T-Shirt</p>
                             <small>Price: $50.00</small><br>
-                            <a href="">Remove</a>
+                            <a href="#" onclick="removeItem(this)">Remove</a>
                         </div>
                     </div>
                 </td>
-                <td><input type="number" vlaue="1"></td>
+                <td><input type="number" value="1" onchange="updateTotal()"></td>
                 <td>$50.00</td>
             </tr>
             <tr>
@@ -81,11 +81,11 @@
                         <div>
                             <p>Red Printed T-Shirt</p>
                             <small>Price: $50.00</small><br>
-                            <a href="">Remove</a>
+                            <a href="#" onclick="removeItem(this)">Remove</a>
                         </div>
                     </div>
                 </td>
-                <td><input type="number" vlaue="1"></td>
+                <td><input type="number" value="1" onchange="updateTotal()"></td>
                 <td>$50.00</td>
             </tr>
             </table>
@@ -94,15 +94,15 @@
                 <table>
                     <tr>
                         <td>Subtotal</td>
-                        <td>$200.00</td>
+                        <td id="cart-subtotal">$200.00</td>
                     </tr>
                     <tr>
                         <td>Tax</td>
-                        <td>$35.00</td>
+                        <td id="cart-tax">$35.00</td>
                     </tr>
                     <tr>
                         <td>Total</td>
-                        <td>$230.00</td>
+                        <td id="cart-total">$230.00</td>
                     </tr>
                 </table>
             </div>
@@ -159,14 +159,76 @@
         <script>
             var menuItems=document.getElementById("MenuItems");
             
-            MenuItems.style.maxHeight="0px";
+            if(window.innerWidth <= 800) {
+                 menuItems.style.maxHeight = "0px";
+            }
+
             function menutoggle(){
-                if(MenuItems.style.maxHeight == "0px"){
-                    MenuItems.style.maxHeight="200px";
+                if(menuItems.style.maxHeight == "0px"){
+                    menuItems.style.maxHeight="200px";
                 }
                 else{
-                    MenuItems.style.maxHeight="0px";
+                    menuItems.style.maxHeight="0px";
                 }
+            }
+        </script>
+
+        <!-- Script for Cart Functionality -->
+        <script>
+            function removeItem(element) {
+                // Prevent link jump
+                event.preventDefault();
+                // Find the row (tr) and remove it
+                var row = element.parentElement.parentElement.parentElement.parentElement;
+                row.remove();
+                updateTotal();
+            }
+
+            function updateTotal() {
+                var table = document.getElementById("cartTable");
+                var rows = table.getElementsByTagName("tr");
+                var subtotal = 0;
+
+                // Loop through rows (skip header row 0)
+                for (var i = 1; i < rows.length; i++) {
+                    var row = rows[i];
+                    var priceElement = row.querySelector("small");
+                    var quantityElement = row.querySelector("input");
+                    var subtotalElement = row.cells[2];
+
+                    if (priceElement && quantityElement) {
+                        // Extract price number from string "Price: $50.00"
+                        var priceText = priceElement.innerText.replace("Price: $", "");
+                        var price = parseFloat(priceText);
+                        var quantity = quantityElement.value;
+                        
+                        // Prevent negative quantity
+                        if(quantity < 1) {
+                            quantity = 1;
+                            quantityElement.value = 1;
+                        }
+
+                        var rowTotal = price * quantity;
+                        subtotal += rowTotal;
+
+                        // Update row subtotal display
+                        subtotalElement.innerText = "$" + rowTotal.toFixed(2);
+                    }
+                }
+
+                // Update bottom totals
+                var tax = 35.00; // Fixed tax for this example
+                var total = subtotal + tax;
+                
+                // If cart is empty, handle edge case
+                if (subtotal === 0) {
+                     tax = 0;
+                     total = 0;
+                }
+
+                document.getElementById("cart-subtotal").innerText = "$" + subtotal.toFixed(2);
+                document.getElementById("cart-tax").innerText = "$" + tax.toFixed(2);
+                document.getElementById("cart-total").innerText = "$" + total.toFixed(2);
             }
         </script>
      
